@@ -1,4 +1,35 @@
-
+<style>
+  h1,h2,p,a{
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+ 
+  .jam-digital {
+    overflow: hidden;
+    width: 500px;
+    margin: 20px auto;
+    border: 0px solid black;
+    border-radius: 10px;
+  }
+  .kotak{
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #EF6811;
+    border-radius: 6px;
+    border: 2px solid black;
+  }
+  .jam-digital p {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+ 
+</style>
+ 
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -6,14 +37,17 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h5 class="m-0 info-box-content text-dark">
-            <small class="badge badge-success"><i class="far fa-clock"></i>
-            	<?php
-					$date = Date("Y-m-d H:i:s", time()+60*60*6);
-					Echo "The time is $date <br>";
-				?>
-			</small>
-            </h5>
+            <div class="jam-digital">
+              <div class="kotak">
+                <p id="jam"></p>
+              </div>
+              <div class="kotak">
+                <p id="menit"></p>
+              </div>
+              <div class="kotak">
+                <p id="detik"></p>
+              </div>
+            </div>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -120,15 +154,31 @@
   <!-- /.content-wrapper -->
 
    <script>
+       <?php foreach ($jumlah_absensi as $key => $val){
+              if ($key == 0) {
+                $a =  $val;
+              } elseif ($key == 1) {
+                $b =  $val;
+              }  elseif ($key == 2) {
+                $c =  $val;
+              }  elseif ($key == 3) {
+                $d =  $val;
+              }  elseif ($key == 4) {
+                $e =  $val;
+              } else {
+                $f =  $val;
+
+              } 
+            ?>
+          <?php } ?>
    		var ctx = document.getElementById("departA").getContext("2d");
         // tampilan chart
         var piechart = new Chart(ctx,{type: 'bar',
           data : {
         // label nama setiap Value
         labels:[
-                  'Hadir Tepat Waktu',
+                  'Tepat Waktu',
                   'Terlambat ',
-                  'Karyawan Kontrak',
                   'Dinas',
                   'Mangkir',
                   'Cuti'
@@ -139,13 +189,12 @@
 	        maxBarThickness: 30,
 	        minBarLength: 4,
           // Jumlah Value yang ditampilkan
-           data:[2,1,3,2,3,3],
+           data:[<?= $c->jumlah; ?>,<?= $e->jumlah; ?>,<?= $b->jumlah; ?>,<?= $d->jumlah; ?>,<?= $a->jumlah; ?>],
 
           backgroundColor:[
                  'rgb(220, 20, 60)',
                  'rgb(40, 178, 170)',
                  'rgb(50, 205, 50)',
-                 'rgb(192, 192, 192)',
                  'rgb(0, 128, 128)',
                  'rgb(255, 0, 255)'
                  ],
@@ -163,7 +212,7 @@
 			}
 		});
 
-        var speedCanvas = document.getElementById("departemenB");
+    var speedCanvas = document.getElementById("departemenB");
 
 		Chart.defaults.global.defaultFontFamily = "";
 		
@@ -214,30 +263,56 @@
 		  options: chartOptions
 		});
 
+    <?php foreach ($jumlah_absensi_departemen as $key => $jml) {
+      if ($key == 0) {
+        $acuti = $jml;
+      } elseif ($key == 1) {
+        $adinas = $jml;
+      } elseif ($key == 2) {
+        $ahtw = $jml;
+      } elseif ($key == 3) {
+        $amangkir = $jml;
+      } elseif ($key == 4) {
+        $ater = $jml;
+      } elseif ($key == 5) {
+        $bcuti = $jml;
+      } elseif ($key == 6) {
+        $bdinas = $jml;
+      } elseif ($key == 7) {
+        $bhtw = $jml;
+      } elseif ($key == 8) {
+        $bmangkir = $jml;
+      } elseif ($key == 9) {
+        $bter = $jml;
+      } else {
+        $ab = null;
+      }
+    }?>
+
 		var ctx = document.getElementById("jamA").getContext("2d");
         // tampilan chart
         var piechart = new Chart(ctx,{type: 'pie',
           data : {
         // label nama setiap Value
         labels:[
-                  'Terlambat',
-                  'Dinas',
                   'Tepat Waktu',
-                  'mangkir',
+                  'Terlambat ',
+                  'Dinas',
+                  'Mangkir',
                   'Cuti'
           ],
         datasets: [{
           // Jumlah Value yang ditampilkan
            label: "Departemen A",
           
-           data:[1,1,1,2,3],
+           data:[<?= $ahtw->jumlah_absensi; ?>,<?= $ater->jumlah_absensi; ?>,<?= $adinas->jumlah_absensi; ?>,<?= $amangkir->jumlah_absensi; ?>,<?= $acuti->jumlah_absensi;?>],
 
           backgroundColor:[
                  'rgb(220, 20, 60)',
                  'rgb(40, 178, 170)',
                  'rgb(50, 205, 50)',
-                 'rgb(255, 0, 255)',
-                 'rgb(0, 128, 128)'
+                 'rgb(0, 128, 128)',
+                 'rgb(255, 0, 255)'
                  ]
         }],
         }
@@ -249,29 +324,37 @@
           data : {
         // label nama setiap Value
         labels:[
-                  'Terlambat',
-                  'Dinas',
                   'Tepat Waktu',
-                  'mangkir',
+                  'Terlambat ',
+                  'Dinas',
+                  'Mangkir',
                   'Cuti'
           ],
         datasets: [{
           // Jumlah Value yang ditampilkan
            label: "Departemen A",
           
-           data:[1,1,1,2,3],
+           data:[<?= $bhtw->jumlah_absensi; ?>,<?= $bter->jumlah_absensi; ?>,<?= $bdinas->jumlah_absensi?>,<?= $bmangkir->jumlah_absensi; ?>,<?= $bcuti->jumlah_absensi; ?>],
 
           backgroundColor:[
                  'rgb(220, 20, 60)',
                  'rgb(40, 178, 170)',
                  'rgb(50, 205, 50)',
-                 'rgb(255, 0, 255)',
-                 'rgb(0, 128, 128)'
+                 'rgb(0, 128, 128)',
+                 'rgb(255, 0, 255)'
                  ]
         }],
         }
         });
 
-
+         window.setTimeout("waktu()", 1000);
+ 
+        function waktu() {
+          var waktu = new Date();
+          setTimeout("waktu()", 1000);
+          document.getElementById("jam").innerHTML = waktu.getHours();
+          document.getElementById("menit").innerHTML = waktu.getMinutes();
+          document.getElementById("detik").innerHTML = waktu.getSeconds();
+        }
 
     </script>
