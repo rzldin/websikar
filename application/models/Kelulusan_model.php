@@ -16,5 +16,12 @@ class Kelulusan_model extends CI_Model
 		return $query->result();
 	}
 
-
+	public function listing()
+	{
+		$this->db->select('*');
+		$this->db->from('lulusan');
+		$this->db->order_by('kd_tamat');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

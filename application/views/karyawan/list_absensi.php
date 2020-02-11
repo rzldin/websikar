@@ -334,7 +334,7 @@
           // Jumlah Value yang ditampilkan
            label: "Departemen A",
           
-           data:[<?= $bhtw->jumlah_absensi; ?>,<?= $bter->jumlah_absensi; ?>,<?= $bdinas->jumlah_absensi?>,<?= $bmangkir->jumlah_absensi; ?>,<?= $bcuti->jumlah_absensi; ?>],
+           data:[<?= $bhtw->jumlah_absensi; ?>,<?= $bter->jumlah_absensi; ?>,<?= $bdinas->jumlah_absensi?>,<?= $bmangkir->jumlah_absensi; ?>,<?= $bcuti->jumlah_absensi;  ?>],
 
           backgroundColor:[
                  'rgb(220, 20, 60)',

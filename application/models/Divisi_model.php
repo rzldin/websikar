@@ -16,6 +16,14 @@ class Divisi_model extends CI_Model
 	}
 
 
+	public function listing()
+	{
+		$this->db->select('*');
+		$this->db->from('divisi');
+		$this->db->order_by('kd_divisi');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 
 }

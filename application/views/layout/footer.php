@@ -12,6 +12,8 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="<?= base_url('assets/admin/plugins/jquery/jquery.min.js'); ?>"></script>
+<!-- JQuery 3.3.1 -->
+<script src="<?= base_url('assets/admin/dist/js/jquery-3.3.1.js');?>"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url('assets/admin/plugins/jquery-ui/jquery-ui.min.js'); ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -44,6 +46,16 @@
 <script src="<?= base_url('assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js'); ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/admin/dist/js/adminlte.js'); ?>"></script>
+<!-- DataTables -->
+<script src="<?= base_url('assets/admin/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?= base_url('assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+<!-- page script -->
+<script>
+  $(document).ready(function() {
+    $('#example1').DataTable();
+} );
+</script>
+
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="<?= base_url('assets/admin/dist/js/demo.js'); ?>"></script>
