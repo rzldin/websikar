@@ -29,4 +29,15 @@ class Karyawan_model extends CI_Model
   }
 
 
+  public function tambah_data($data)
+  {
+    $this->db->insert('karyawan', $data);
+  }
+
+  public function hapus($data)
+  {
+    $this->db->where($data);
+    $this->db->delete('karyawan', $data);
+  }
+
 }

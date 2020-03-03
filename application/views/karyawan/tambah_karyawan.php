@@ -33,11 +33,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="name">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Lengkap" required>
+                    <input type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="Masukkan Nama Lengkap" required>
                   </div>
                   <div class="form-group">
                     <label for="alamt">Alamat</label>
-                    <input type="text" class="form-control" id="alamat" placeholder="Alamat" required>
+                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" required>
                   </div>
                   <div class="form-group">
                     <label for="telpon">No. Telpon</label>
@@ -78,7 +78,7 @@
                     	<?php } ?>	
                   	</select>
                   </div>
-                  <div class="form-group">
+<!--                   <div class="form-group">
                     <label for="exampleInputFile">Masukkan Foto Profil</label>
                     <div class="input-group">
                       <div class="custom-file">
@@ -90,7 +90,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- /.card-body -->
 
                 <div class="card-footer">

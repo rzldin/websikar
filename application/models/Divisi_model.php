@@ -23,7 +23,13 @@ class Divisi_model extends CI_Model
 		$this->db->order_by('kd_divisi');
 		$query = $this->db->get();
 		return $query->result();
+		// die($this->db->last_query());
 	}
 
+
+	public function tambah_data($data)
+	{
+		$this->db->insert('divisi', $data);
+	}
 
 }

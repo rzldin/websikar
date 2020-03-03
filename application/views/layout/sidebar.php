@@ -63,13 +63,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('karyawan/data_karyawan') ?>" class="nav-link">
+                <a href="<?= base_url('datakaryawan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Karyawan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('karyawan/tambah_karyawan') ?>" class="nav-link">
+                <a href="<?= base_url('tambah-karyawan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Karyawan</p>
                 </a>
@@ -80,6 +80,23 @@
                   <p>Inline</p>
                 </a>
               </li> -->
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('inputdata/add') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Input Data</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
